@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# This is the bash script version of "Daily Notes"
+# The preferred alias to the script is "dn 'Whatever you want to note'"
+#
+# IMPORTANT: You must use single quotes.
+# Ex: dn 'Note'
+
 DIRECTORY=$HOME'/Dropbox/Documentation/daily_notes'
 FILE=$DIRECTORY'/'`date +%F`.md
 NOTE=$1
