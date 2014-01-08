@@ -12,6 +12,11 @@ NOTE=$1
 DATE=`date +%B\ %d\,\ %Y`
 TIME=`date +%r`
 
+if [ "$1" == "" ]; then
+  subl "$FILE"
+  exit 0
+fi
+
 if [ ! -d "$DIRECTORY" ]; then
   mkdir -p "$DIRECTORY"
   echo $DIRECTORY
