@@ -11,9 +11,10 @@ FILE=$DIRECTORY'/'`date +%F`.md
 NOTE=$1
 DATE=`date +%B\ %d\,\ %Y`
 TIME=`date +%r`
+EDITOR_COMMAND='vim'
 
 if [ "$1" == "" ]; then
-  subl "$FILE"
+  ${EDITOR_COMMAND} "${FILE}"
   exit 0
 fi
 
