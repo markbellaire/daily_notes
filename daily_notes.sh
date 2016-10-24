@@ -6,8 +6,8 @@
 # IMPORTANT: You must use single quotes.
 # Ex: dn 'Note'
 
-DIRECTORY=$HOME'/Dropbox/Documentation/daily_notes'
-FILE=$DIRECTORY'/'`date +%F`.md
+DIRECTORY=$HOME'/Dropbox/Daily Notes'
+FILE="$DIRECTORY/"`date +%F`.md
 NOTE=$1
 DATE=`date +%B\ %d\,\ %Y`
 TIME=`date +%r`
@@ -23,11 +23,11 @@ if [ ! -d "$DIRECTORY" ]; then
   echo $DIRECTORY
 fi
 
-if [ ! -e $FILE ]; then
-  echo 'Daily Notes for '$DATE >> $FILE
+if [ ! -e "${FILE}" ]; then
+  echo 'Daily Notes for '$DATE >> "${FILE}"
 fi
 
-echo >> $FILE
-echo '----' >> $FILE
-echo >> $FILE
-echo $TIME' - '$1 >> $FILE
+echo >> "${FILE}"
+echo '----' >> "${FILE}"
+echo >> "${FILE}"
+echo $TIME' - '$1 >> "${FILE}"
