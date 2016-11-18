@@ -14,17 +14,17 @@ TIME=`date +%r`
 EDITOR_COMMAND='vim'
 
 if [ "$1" == "" ]; then
-  ${EDITOR_COMMAND} "${FILE}"
-  exit 0
+    ${EDITOR_COMMAND} "${FILE}"
+    exit 0
 fi
 
 if [ ! -d "$DIRECTORY" ]; then
-  mkdir -p "$DIRECTORY"
-  echo $DIRECTORY
+    mkdir -p "$DIRECTORY"
+    echo $DIRECTORY
 fi
 
 if [ ! -e "${FILE}" ]; then
-  echo 'Daily Notes for '$DATE >> "${FILE}"
+    echo 'Daily Notes for '$DATE >> "${FILE}"
 fi
 
 echo >> "${FILE}"
