@@ -15,7 +15,7 @@ TIME=`date +%r`
 EDITOR_COMMAND='vim'
 
 if [ "${NOTE}" == "" ]; then
-    ${EDITOR_COMMAND} ${TMP}
+    $EDITOR_COMMAND $TMP
 fi
 
 if [ ! -d "$DIRECTORY" ]; then
@@ -27,7 +27,13 @@ if [ ! -e "${FILE}" ]; then
     echo 'Daily Notes for '$DATE >> "${FILE}"
 fi
 
-echo >> "${FILE}"
-echo '----' >> "${FILE}"
-echo >> "${FILE}"
-echo $TIME' - '$NOTE >> "${FILE}"
+if [ ! -e $TMP ]; then
+    echo >> ${FILE}
+    echo "- $TIME -" >> "${FILE}"
+    echo $NOTE >> "${FILE}"
+else
+    echo >> ${FILE}
+    echo "- $TIME -" >> "${FILE}"
+    cat $TMP >> "${FILE}"
+    rm $TMP
+fi
