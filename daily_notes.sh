@@ -8,14 +8,14 @@
 
 DIRECTORY=$HOME'/Dropbox/Daily Notes'
 FILE="$DIRECTORY/"`date +%F`.md
+TMP="/tmp/daily_note.txt"
 NOTE=$1
 DATE=`date +%B\ %d\,\ %Y`
 TIME=`date +%r`
 EDITOR_COMMAND='vim'
 
-if [ "$1" == "" ]; then
-    ${EDITOR_COMMAND} "${FILE}"
-    exit 0
+if [ "${NOTE}" == "" ]; then
+    ${EDITOR_COMMAND} ${TMP}
 fi
 
 if [ ! -d "$DIRECTORY" ]; then
@@ -30,4 +30,4 @@ fi
 echo >> "${FILE}"
 echo '----' >> "${FILE}"
 echo >> "${FILE}"
-echo $TIME' - '$1 >> "${FILE}"
+echo $TIME' - '$NOTE >> "${FILE}"
